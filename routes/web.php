@@ -15,6 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post/{id}', function ($id) {
-    return "this is post no " . $id;
-});
+Route::get('/post','PostController@index');

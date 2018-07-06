@@ -15,9 +15,9 @@ class PostController extends Controller
     {
         return "HelloThis is PostController id is = " . $id;
     }
-public function contact()
+public function contact($id)
 {
-  return View('contact');
+  return View('contact')->with('id', $id);
 }
 
     /**

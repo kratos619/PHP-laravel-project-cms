@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post','PostController@contact');
+Route::get('/post/{id}','PostController@contact');

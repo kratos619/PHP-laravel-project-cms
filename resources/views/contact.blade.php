@@ -12,6 +12,6 @@
 
     </head>
     <body>
-<h1>This is contact Page</h1>
+<h1>This is contact Page {{$id}}</h1>
     </body>
 </html>

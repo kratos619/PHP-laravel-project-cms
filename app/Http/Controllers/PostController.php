@@ -15,6 +15,10 @@ class PostController extends Controller
     {
         return "HelloThis is PostController id is = " . $id;
     }
+public function contact()
+{
+  return View('contact');
+}
 
     /**
      * Show the form for creating a new resource.

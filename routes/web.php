@@ -28,10 +28,17 @@ Route::get('posts/{id}', function($id) {
 $query = DB::select('select * from posts where id=?',[$id]);
 foreach($query as $value){
     echo $value->title;
-   echo "<br/>";
+    echo "<br/>";
     echo $value->body;
 }
 });
 
+
+Route::get('update/{id}', function($id) {
+$query = DB::update('update posts set title="this is updated title" where id= ?',[$id]);
+if($query){
+    echo "update Successfull";
+}
+});
 
 //Route::get('/post/{id}','PostController@contact');

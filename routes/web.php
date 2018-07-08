@@ -15,4 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/post/{id}','PostController@contact');
+Route::get('/insert', function () {
+$query = DB::insert('insert into posts(title,body )values(?,?)',['this is post Two','this is post body content']);
+    if($query){
+        echo "insert Successfully";
+    }
+
+});
+
+
+//Route::get('/post/{id}','PostController@contact');

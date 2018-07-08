@@ -41,4 +41,11 @@ if($query){
 }
 });
 
+Route::get('delete/{id}',function($id){
+$query = DB::delete('delete from posts where id=?', [$id]);
+if($query){
+    echo "delete data successfull";
+}
+});
+
 //Route::get('/post/{id}','PostController@contact');

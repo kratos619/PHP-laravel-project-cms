@@ -24,4 +24,14 @@ $query = DB::insert('insert into posts(title,body )values(?,?)',['this is post T
 });
 
 
+Route::get('posts/{id}', function($id) {
+$query = DB::select('select * from posts where id=?',[$id]);
+foreach($query as $value){
+    echo $value->title;
+   echo "<br/>";
+    echo $value->body;
+}
+});
+
+
 //Route::get('/post/{id}','PostController@contact');

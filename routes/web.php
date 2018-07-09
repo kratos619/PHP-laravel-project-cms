@@ -19,9 +19,24 @@ foreach ($posts as  $value) {
 echo $value->body;
 }
 });
+Route::get('/findbyid', function()
+{
+$posts = Post::where('id', 2)->orderBy('id','desc')->take(1)->get();
+echo "<pre>";
+echo  var_dump($posts) ;
+echo "</pre>";
+});
 
+Route::get('/ORMinsert', function()
+{
+  $posts = Post::find(2);
+$posts->title ="this title insert from ORM 2";
+$posts->body ="this body insert from ORM 2";
+if($posts->save()){
+echo "insert data successfull";
+}
 
-
+});
 
 
 Route::get('/', function () {

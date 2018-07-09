@@ -58,6 +58,10 @@ Route::get('/readsoftDeletes', function()
 {
 echo Post::withTrashed()->where('id',2)->get();
 });
+Route::get('/restore', function()
+{
+echo Post::withTrashed()->where('id',2)->restore();
+});
 // Route::get('/insert', function () {
 // $query = DB::insert('insert into posts(title,body )values(?,?)',['this is post Two','this is post body content']);
 //     if($query){

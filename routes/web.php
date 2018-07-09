@@ -53,6 +53,11 @@ echo  "delete successfull";
 
 });
 
+
+Route::get('/readsoftDeletes', function()
+{
+echo Post::withTrashed()->where('id',2)->get();
+});
 // Route::get('/insert', function () {
 // $query = DB::insert('insert into posts(title,body )values(?,?)',['this is post Two','this is post body content']);
 //     if($query){

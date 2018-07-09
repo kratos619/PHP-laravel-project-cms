@@ -35,12 +35,22 @@ $posts->body ="this body insert from ORM 2";
 if($posts->save()){
 echo "insert data successfull";
 }
-
 });
 
-
+Route::get('/update', function()
+{
+Post::where('id',2)->update(['title'=>'My new Title','body'=>"new Data"]);
+});
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/softDeletes', function()
+{
+if(Post::find(2)->delete()){
+echo  "delete successfull";
+}
+
 });
 
 // Route::get('/insert', function () {

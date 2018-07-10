@@ -20,6 +20,10 @@ Route::get('/user/{id}/post', function($id)
 {
   echo User::find($id)->post;
 });
+Route::get('/post/{id}/user', function($id)
+{
+  echo Post::find($id)->user->name;
+});
 //
 //
 // Route::get('/find', function(){

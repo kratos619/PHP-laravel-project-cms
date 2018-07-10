@@ -16,22 +16,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user/{id}/post', function($id)
+Route::get('users/country', function()
 {
-  echo User::find($id)->post;
-});
-Route::get('/post/{id}/user', function($id)
-{
-  echo Post::find($id)->user->name;
+
 });
 
-Route::get('/posts', function(){
-$user = User::find(1);
-foreach ($user->posts as $value) {
-echo  $value->title . "<br>";
-echo $value->body ."<br>";
-}
-});
+// Route::get('/user/{id}/post', function($id)
+// {
+//   echo User::find($id)->post;
+// });
+// Route::get('/post/{id}/user', function($id)
+// {
+//   echo Post::find($id)->user->name;
+// });
+//
+// Route::get('/posts', function(){
+// $user = User::find(1);
+// foreach ($user->posts as $value) {
+// echo  $value->title . "<br>";
+// echo $value->body ."<br>";
+// }
+// });
 //
 //
 // Route::get('/find', function(){

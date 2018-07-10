@@ -24,6 +24,14 @@ Route::get('/post/{id}/user', function($id)
 {
   echo Post::find($id)->user->name;
 });
+
+Route::get('/posts', function(){
+$user = User::find(1);
+foreach ($user->posts as $value) {
+echo  $value->title . "<br>";
+echo $value->body ."<br>";
+}
+});
 //
 //
 // Route::get('/find', function(){

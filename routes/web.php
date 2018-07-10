@@ -1,5 +1,6 @@
 <?php
 use App\Post;
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,57 +12,69 @@ use App\Post;
 |
 */
 
-
-Route::get('/find', function(){
-$posts = Post::all();
-foreach ($posts as  $value) {
-  echo $value->title . "<br>";
-echo $value->body;
-}
-});
-Route::get('/findbyid', function()
-{
-$posts = Post::where('id', 2)->orderBy('id','desc')->take(1)->get();
-echo "<pre>";
-echo  var_dump($posts) ;
-echo "</pre>";
-});
-
-Route::get('/ORMinsert', function()
-{
-  $posts = Post::find(2);
-$posts->title ="this title insert from ORM 2";
-$posts->body ="this body insert from ORM 2";
-if($posts->save()){
-echo "insert data successfull";
-}
-});
-
-Route::get('/update', function()
-{
-Post::where('id',2)->update(['title'=>'My new Title','body'=>"new Data"]);
-});
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/softDeletes', function()
+Route::get('/user/{id}/post', function($id)
 {
-if(Post::find(2)->delete()){
-echo  "delete successfull";
-}
-
+  echo User::find($id)->post;
 });
-
-
-Route::get('/readsoftDeletes', function()
-{
-echo Post::withTrashed()->where('id',2)->get();
-});
-Route::get('/restore', function()
-{
-echo Post::withTrashed()->where('id',2)->restore();
-});
+//
+//
+// Route::get('/find', function(){
+// $posts = Post::all();
+// foreach ($posts as  $value) {
+//   echo $value->title . "<br>";
+// echo $value->body;
+// }
+// });
+// Route::get('/findbyid', function()
+// {
+// $posts = Post::where('id', 2)->orderBy('id','desc')->take(1)->get();
+// echo "<pre>";
+// echo  var_dump($posts) ;
+// echo "</pre>";
+// });
+// //
+// Route::get('/ORMinsert', function()
+// {
+//   $posts = new Post;
+// $posts->title ="this title insert from ORM 2";
+// $posts->body ="this body insert from ORM 2";
+// if($posts->save()){
+// echo "insert data successfull";
+// }
+// });
+//
+// Route::get('/update', function()
+// {
+// Post::where('id',2)->update(['title'=>'My new Title','body'=>"new Data"]);
+// });
+//
+// Route::get('/softDeletes', function()
+// {
+// if(Post::find(2)->delete()){
+// echo  "delete successfull";
+// }
+//
+// });
+//
+//
+// Route::get('/readsoftDeletes', function()
+// {
+// echo Post::withTrashed()->where('id',2)->get();
+// });
+// Route::get('/restore', function()
+// {
+// echo Post::withTrashed()->where('id',2)->restore();
+// });
+// Route::get('/forcedelete', function()
+// {
+//  if(Post::withTrashed()->where('id',2)->forceDelete()){
+// echo "selete Successfull";
+// }
+// });
 // Route::get('/insert', function () {
 // $query = DB::insert('insert into posts(title,body )values(?,?)',['this is post Two','this is post body content']);
 //     if($query){

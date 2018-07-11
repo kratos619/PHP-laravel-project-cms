@@ -1,6 +1,7 @@
 <?php
 use App\Post;
 use App\User;
+use App\Country;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +19,11 @@ Route::get('/', function () {
 
 Route::get('users/country', function()
 {
+$countery  = Country::find(3);
+
+foreach ($countery->posts as $value) {
+  echo $value->title;
+}
 
 });
 

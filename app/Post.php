@@ -9,6 +9,8 @@ class Post extends Model
 use SoftDeletes;
 
 protected $date = ['deleted_at'];
+// protected $title = ['title'];
+// protected $bodys = ['body'];
 //     //
 // protected $table = "posts";
 // protected $pk = "id";

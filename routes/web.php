@@ -16,16 +16,19 @@ use App\Country;
 Route::get('/', function () {
     return view('welcome');
 });
+// CRUD APP ROUTE
+Route::resource('/posts','PostController');
 
-Route::get('users/country', function()
-{
-$countery  = Country::find(3);
-
-foreach ($countery->posts as $value) {
-  echo $value->title;
-}
-
-});
+//
+// Route::get('users/country', function()
+// {
+// $countery  = Country::find(3);
+//
+// foreach ($countery->posts as $value) {
+//   echo $value->title;
+// }
+//
+// });
 
 // Route::get('/user/{id}/post', function($id)
 // {

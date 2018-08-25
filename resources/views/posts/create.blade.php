@@ -13,10 +13,11 @@
     </head>
     <body>
 <div class="container">
-@yield('content')
-
+  <form action="/project-laravel-cms/public/posts/" method="post">
+      <input type="text" placeholder="enter title" name="title">
+      <!-- <textarea name="body" id="" cols="30" rows="10"></textarea> -->
+      <input type="submit" value="Submit">
+  </form>
 </div>
-
-@yield('footer')
-    </body>
+</body>
 </html>

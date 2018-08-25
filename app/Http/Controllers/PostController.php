@@ -11,13 +11,13 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        return "HelloThis is PostController id is = " . $id;
+        //return "HelloThis is PostController id is = " . $id;
     }
-public function contact($id)
+public function contact()
 {
-  return View('contact')->with('id', $id);
+//  return View('contact')->with('id', $id);
 }
 
     /**
@@ -27,7 +27,7 @@ public function contact($id)
      */
     public function create()
     {
-        //
+        return view('/posts.create');
     }
 
     /**
@@ -38,7 +38,7 @@ public function contact($id)
      */
     public function store(Request $request)
     {
-        //
+        echo $request->all();
     }
 
     /**
